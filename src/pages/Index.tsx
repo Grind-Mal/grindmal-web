@@ -7,6 +7,7 @@ import "@fontsource/jetbrains-mono/500.css";
 import "@fontsource/jetbrains-mono/700.css";
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import CyclePanel from "@/components/CyclePanel";
 import ActiveChallenge from "@/components/ActiveChallenge";
 import OpenIssues from "@/components/OpenIssues";
@@ -55,31 +56,7 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-card/50 mt-12">
-        <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-primary">
-              <span className="font-mono text-xs font-bold text-primary-foreground">GM</span>
-            </div>
-            <span className="font-mono text-sm text-muted-foreground">
-              © 2026 GrindMal. Ship code or ship out.
-            </span>
-          </div>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Terms</a>
-            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-            <a 
-              href="https://github.com/grindmal" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
