@@ -2,9 +2,11 @@ import { Github, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", href: "/" },
+  { name: "Dashboard", href: "/dashboard" },
   { name: "Challenges", href: "/challenges" },
   { name: "Issues", href: "/issues" },
   { name: "Leaderboard", href: "/leaderboard" },
@@ -20,9 +22,7 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-8">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-              <span className="font-mono text-sm font-bold text-primary-foreground">GM</span>
-            </div>
+            <img src={logo} alt="GrindMal" className="h-10 w-10" />
             <span className="font-mono text-lg font-semibold tracking-tight text-foreground">
               GrindMal
             </span>
