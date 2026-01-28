@@ -10,7 +10,6 @@ const navLinks = [
   { name: "Challenges", href: "/challenges" },
   { name: "Issues", href: "/issues" },
   { name: "Leaderboard", href: "/leaderboard" },
-  { name: "About", href: "/about" },
 ];
 
 const Header = () => {
