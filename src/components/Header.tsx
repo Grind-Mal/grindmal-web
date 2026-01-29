@@ -46,7 +46,7 @@ const Header = () => {
 
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/Grind-Mal"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:flex items-center gap-2 rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-accent"

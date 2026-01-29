@@ -21,6 +21,7 @@ import {
   Send,
 } from "lucide-react";
 import logo from "@/assets/logo_transperant.png";
+import { useOrganizationStats } from "@/lib/github-api";
 
 const principles = [
   {
@@ -73,14 +74,28 @@ const steps = [
   },
 ];
 
-const stats = [
-  { value: "12", label: "Challenges Completed" },
-  { value: "156", label: "Active Contributors" },
-  { value: "340+", label: "PRs Merged" },
-  { value: "50+", label: "Issues Resolved" },
-];
-
 const Landing = () => {
+  const { data: orgStats, isLoading } = useOrganizationStats();
+
+  const stats = [
+    {
+      value: isLoading ? "..." : orgStats?.totalChallenges,
+      label: "Challenges Completed",
+    },
+    {
+      value: isLoading ? "..." : orgStats?.totalContributors,
+      label: "Active Contributors",
+    },
+    {
+      value: isLoading ? "..." : `${orgStats?.totalMergedPRs || 0}+`,
+      label: "PRs Merged",
+    },
+    {
+      value: isLoading ? "..." : `${orgStats?.totalIssuesResolved || 0}+`,
+      label: "Issues Resolved",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -186,37 +201,37 @@ const Landing = () => {
         </section>
 
         {/* Community */}
-        <section className="container py-16 md:py-24">
-          <div className="max-w-2xl mx-auto text-center">
-            <Users className="h-12 w-12 text-primary mx-auto mb-6" />
-            <h2 className="font-mono text-2xl font-bold text-foreground mb-4">
-              Join the Community
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Connect with other grinders. Get announcements. Share your wins.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://discord.gg/grindmal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#5865F2] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
-              >
-                <MessageCircle className="h-5 w-5" />
-                Join Discord
-              </a>
-              <a
-                href="https://t.me/grindmal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0088cc] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
-              >
-                <Send className="h-5 w-5" />
-                Join Telegram
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* <section className="container py-16 md:py-24"> */}
+        {/*   <div className="max-w-2xl mx-auto text-center"> */}
+        {/*     <Users className="h-12 w-12 text-primary mx-auto mb-6" /> */}
+        {/*     <h2 className="font-mono text-2xl font-bold text-foreground mb-4"> */}
+        {/*       Join the Community */}
+        {/*     </h2> */}
+        {/*     <p className="text-muted-foreground mb-8"> */}
+        {/*       Connect with other grinders. Get announcements. Share your wins. */}
+        {/*     </p> */}
+        {/*     <div className="flex flex-col sm:flex-row gap-4 justify-center"> */}
+        {/*       <a */}
+        {/*         href="https://discord.gg/grindmal" */}
+        {/*         target="_blank" */}
+        {/*         rel="noopener noreferrer" */}
+        {/*         className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#5865F2] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90" */}
+        {/*       > */}
+        {/*         <MessageCircle className="h-5 w-5" /> */}
+        {/*         Join Discord */}
+        {/*       </a> */}
+        {/*       <a */}
+        {/*         href="https://t.me/grindmal" */}
+        {/*         target="_blank" */}
+        {/*         rel="noopener noreferrer" */}
+        {/*         className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0088cc] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90" */}
+        {/*       > */}
+        {/*         <Send className="h-5 w-5" /> */}
+        {/*         Join Telegram */}
+        {/*       </a> */}
+        {/*     </div> */}
+        {/*   </div> */}
+        {/* </section> */}
 
         {/* Manifesto Quote */}
         <section className="border-t border-border">
